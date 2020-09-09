@@ -6,8 +6,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Wayne del Corral Jr"]
   spec.email         = ["wdelcorjr@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = %q{'basic Hurricane tracker CLI app'}
   spec.homepage      = "https://github.com/wdelcorjr/hurricane_cli_app"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
@@ -16,7 +15,7 @@ Gem::Specification.new do |spec|
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/wdelcorjr/hurricane_cli_app"
-  spec.metadata["changelog_uri"] = "/Users/waynedelcorraljr/Flatiron/code/hurricane_cli_app/lib/hurricane_cli_app/version.rb"
+  spec.metadata["changelog_uri"] = "https://github.com/wdelcorjr/hurricane_cli_app/blob/master/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.

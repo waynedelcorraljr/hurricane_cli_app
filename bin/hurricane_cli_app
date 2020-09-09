@@ -1,6 +1,2 @@
 #!/usr/bin/env ruby
-require_relative "lib/scraper.rb"
-require_relative "lib/storm.rb"
-require_relative "lib/region.rb"
-
-puts 'Hello, welcome to the Hurricane CLI App!'
+require_relative '../config/environment'

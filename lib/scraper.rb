@@ -25,6 +25,7 @@ def self.scrape_storms_and_details
     storm_details = doc.css('.ng-star-inserted').css('.storm').children.map {|e| e.css('.storm-details').text}.reject{|e| e == ""} 
     storm_names_and_details = Hash[storm_names.zip(storm_details)] 
     storm_names_and_details
+    
 end
 # binding.pry
 # puts storm_names
@@ -32,7 +33,7 @@ end
 # puts region_activity_hash
 # current_storms = self.scrape_storms_and_details.map {|key, value| {name: key, details: value}}
 
-puts region_activity_hash_hash = self.scrape_regions_and_activity 
-puts current_storms = self.scrape_storms_and_details.map {|key, value| {name: key, details: value}}
+# puts region_activity_hash_hash = self.scrape_regions_and_activity 
+# puts current_storms = self.scrape_storms_and_details.map {|key, value| {name: key, details: value}}
 
 end

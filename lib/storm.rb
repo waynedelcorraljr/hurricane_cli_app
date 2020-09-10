@@ -1,3 +1,4 @@
+
 class Storm
     attr_accessor :name, :region, :details
     @@all = []
@@ -12,5 +13,5 @@ class Storm
     def self.all
         @@all
     end
-    
+    # binding.pry
 end

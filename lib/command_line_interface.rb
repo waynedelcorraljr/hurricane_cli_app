@@ -18,6 +18,7 @@ class CommandLineInterface
         regions = Scraper.scrape_regions_and_activity
         Region.create_regions_from_collection(regions)
         puts 'To view all active storms, enter "active storms"'
+        puts 'To view details of all active storms, enter "active storm details"'
         puts 'To view region activity, enter "region activity"'
         puts 'To exit the application, enter "exit"'
 
@@ -26,8 +27,12 @@ class CommandLineInterface
         input = " "
         puts "What would you like to see?"
         input = gets.strip
-            if input == "active storms"
+            if input == "active storm details"
                 storm_list = Storm.all.map {|storm| {storm.name => storm.details}}
+                puts storm_list
+                capture_path
+            elsif input == "active storms"
+                storm_list = Storm.all.map {|storm| storm.name}
                 puts storm_list
                 capture_path
             elsif input == "region activity"

@@ -27,13 +27,5 @@ def self.scrape_storms_and_details
     storm_names_and_details
     
 end
-# binding.pry
-# puts storm_names
-# puts storm_details
-# puts region_activity_hash
-# current_storms = self.scrape_storms_and_details.map {|key, value| {name: key, details: value}}
-
-# puts region_activity_hash_hash = self.scrape_regions_and_activity 
-# puts current_storms = self.scrape_storms_and_details.map {|key, value| {name: key, details: value}}
 
 end

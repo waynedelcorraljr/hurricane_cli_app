@@ -29,36 +29,25 @@ class CommandLineInterface
         puts ''
         puts '*****************************************************************'.yellow
         puts '*                                                               *'.yellow
-        puts '*           To view all active storms, enter "active"           *'.yellow
-        puts '*         To view details of all storms, enter "details"        *'.yellow
         puts '*            To view region activity, enter "regions"           *'.yellow
         puts '*               For full report, enter "full report"            *'.yellow
-        puts '*              To exit the application, enter "exit"            *'.yellow          
+        puts '*       Type storm name to see details of only that storm       *'.yellow
+        puts '*              To exit the application, type "exit"             *'.yellow          
         puts '*                                                               *'.yellow
         puts '*****************************************************************'.yellow
-        puts ''
+
+        Storm.display_all_storms
+        
         puts "Your wish is my command..."
         puts ''
         input = gets.strip
-            if input == "details"
-                Storm.all.each do |storm| 
-                    puts ""
-                    puts "#{storm.name}".blue
-                    puts "#{storm.details}".green
-                end
-                capture_path_loop
-            elsif input == "active"
-                Storm.all.each do |storm| 
-                    puts ""
-                    puts "#{storm.name}".blue
-                end
-                capture_path_loop
-            elsif input == "regions"
+            if input == "regions"
                 Region.all.each do |region| 
                     puts ""
                     puts "#{region.name}".blue
                     puts "#{region.number_storms_active}".green
                 end
+                sleep(5)
                 capture_path_loop
             elsif input == "full report"
                 Region.all.each do |region| 
@@ -73,11 +62,13 @@ class CommandLineInterface
                     puts "#{storm.name}".blue
                     puts "#{storm.details}".green
                 end
+                sleep(10)
                 capture_path_loop
             elsif input == "exit"
                 say_goodbye
             else
-                puts "Invalid input, please try again."
+                storm = Storm.find_by_name(input)
+                sleep(5)
                 capture_path_loop
             end
     end

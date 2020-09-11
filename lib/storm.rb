@@ -1,4 +1,5 @@
-
+require 'pry'
+require 'colorize'
 class Storm
     attr_accessor :name, :region, :details
     @@all = []
@@ -13,5 +14,20 @@ class Storm
     def self.all
         @@all
     end
-    # binding.pry
+    def self.display_all_storms
+        puts ''
+        puts "ACTIVE STORMS:".green
+                Storm.all.each do |storm| 
+                    puts "#{storm.name}".blue
+                end
+        puts ''
+    end
+    def self.find_by_name(input)
+        selection = Storm.all.select {|storm| storm.name == input}
+        if selection == []
+            puts "Invalid input, please try again."
+        else
+            puts "#{selection.first.details}".red
+        end
+    end
 end

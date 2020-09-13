@@ -22,7 +22,7 @@ class Storm
         puts ''
     end
     def self.find_by_name(input)
-        selection = Storm.all.select {|storm| storm.name == input}
+        selection = Storm.all.select {|storm| storm.name.upcase == input.upcase}
         if selection == []
             puts "Invalid input, please try again."
         else

@@ -13,6 +13,8 @@ class CommandLineInterface
         puts '*           Hello, welcome to the Hurricane CLI App!            *'.yellow
         puts '*                                                               *'.yellow
         puts '*****************************************************************'.yellow
+        puts ''
+        puts '            Generating storm data, just a moment.....            '.green
     end
 
     def create_objects

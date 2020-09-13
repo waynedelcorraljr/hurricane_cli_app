@@ -1,4 +1,3 @@
-require 'pry'
 require 'colorize'
 class Storm
     attr_accessor :name, :region, :details

@@ -40,7 +40,7 @@ class CommandLineInterface
         puts "Your wish is my command..."
         puts ''
         input = gets.strip
-            if input == "regions"
+            if input.upcase == "REGIONS"
                 Region.all.each do |region| 
                     puts ""
                     puts "#{region.name}".blue
@@ -48,7 +48,7 @@ class CommandLineInterface
                 end
                 sleep(5)
                 capture_path_loop
-            elsif input == "full report"
+            elsif input.upcase == "FULL REPORT"
                 Region.all.each do |region| 
                     puts ""
                     puts "#{region.name}".blue
@@ -63,7 +63,7 @@ class CommandLineInterface
                 end
                 sleep(10)
                 capture_path_loop
-            elsif input == "exit"
+            elsif input.upcase == "EXIT"
                 say_goodbye
             else
                 storm = Storm.find_by_name(input)

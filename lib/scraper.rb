@@ -1,6 +1,5 @@
 require 'nokogiri'
 require 'open-uri'
-
 class Scraper
 SITE = "https://www.wunderground.com/hurricane" 
 
@@ -20,11 +19,18 @@ end
 
 def self.scrape_storms_and_details
     doc = Nokogiri::HTML(open(SITE))
-    storm_names = doc.css('.ng-star-inserted').css('.storm').children.map {|e| e.css('a').first.text}.reject{|e| e == ""} 
-    storm_details = doc.css('.ng-star-inserted').css('.storm').children.map {|e| e.css('.storm-details').text}.reject{|e| e == ""} 
-    storm_names_and_details = Hash[storm_names.zip(storm_details)] 
-    storm_names_and_details
-    
+    storm_modules = doc.css('.storm')
+    storm_hash_arr = storm_modules.map do |storm|
+        {
+            name: storm.css('h4').text,
+            last_updated: storm.css('strong').first.text, #needs "GMT" timezone noted
+            location: storm.css('strong')[1].text,
+            movement: storm.css('strong')[2].text,
+            wind_speed: storm.css('strong')[3].text,
+            pressure: storm.css('strong').last.text,
+            url: storm.css('a.button').attribute('href') #returns Attr not value, value must be called.
+        }
+    end
 end
 
 end

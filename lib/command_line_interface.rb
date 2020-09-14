@@ -19,12 +19,12 @@ class CommandLineInterface
 
     def create_objects
         storms = Scraper.scrape_storms_and_details
-        hashed_storms = storms.map {|key, value| {name: key, details: value}}
-        Storm.create_storms_from_collection(hashed_storms) 
+        Storm.create_storms_from_collection(storms) 
+
         regions = Scraper.scrape_regions_and_activity
         Region.create_regions_from_collection(regions)
-
     end
+    
     def capture_path_loop
         input = " "
         puts ''
@@ -61,7 +61,11 @@ class CommandLineInterface
                 Storm.all.each do |storm| 
                     puts ""
                     puts "#{storm.name}".blue
-                    puts "#{storm.details}".green
+                    puts "Last Updated: #{storm.last_updated} GMT".green
+                    puts "Location: #{storm.location}".green
+                    puts "Movement: #{storm.movement}".green
+                    puts "Wind Speed: #{storm.wind_speed}".green
+                    puts "Pressure: #{storm.pressure}".green
                 end
                 sleep(10)
                 capture_path_loop

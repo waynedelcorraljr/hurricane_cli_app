@@ -24,7 +24,7 @@ class CommandLineInterface
         regions = Scraper.scrape_regions_and_activity
         Region.create_regions_from_collection(regions)
     end
-    
+
     def capture_path_loop
         input = " "
         puts ''
@@ -48,7 +48,7 @@ class CommandLineInterface
                     puts "#{region.name}".blue
                     puts "#{region.number_storms_active}".green
                 end
-                sleep(5)
+                sleep(2)
                 capture_path_loop
             elsif input.upcase == "FULL REPORT"
                 Region.all.each do |region| 
@@ -67,13 +67,13 @@ class CommandLineInterface
                     puts "Wind Speed: #{storm.wind_speed}".green
                     puts "Pressure: #{storm.pressure}".green
                 end
-                sleep(10)
+                sleep(5)
                 capture_path_loop
             elsif input.upcase == "EXIT"
                 say_goodbye
             else
                 storm = Storm.find_by_name(input)
-                sleep(5)
+                sleep(2)
                 capture_path_loop
             end
     end

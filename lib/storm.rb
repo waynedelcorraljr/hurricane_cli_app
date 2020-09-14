@@ -20,9 +20,9 @@ class Storm
     end
     def self.display_all_storms
         puts ''
-        puts "ACTIVE STORMS:".blue
+        puts "                      ACTIVE STORMS:".blue
                 Storm.all.each do |storm| 
-                    puts "#{storm.name}".green
+                    puts "                  #{storm.name}".green
                 end
         puts ''
     end
@@ -32,11 +32,16 @@ class Storm
             puts "Invalid input, please try again."
         else
             puts "#{selection.first.name}".blue
-            puts "Last Updated: #{selection.first.last_updated} GMT".green
-            puts "Location: #{selection.first.location}".green
-            puts "Movement: #{selection.first.movement}".green
-            puts "Wind Speed: #{selection.first.wind_speed}".green
-            puts "Pressure: #{selection.first.pressure}".green
+            puts "  Last Updated: ".green
+            puts "      #{selection.first.last_updated} GMT".light_blue
+            puts "  Location: ".green
+            puts "      #{selection.first.location}".light_blue
+            puts "  Movement: ".green
+            puts "      #{selection.first.movement}".light_blue
+            puts "  Wind Speed: ".green
+            puts "      #{selection.first.wind_speed}".light_blue
+            puts "  Pressure: ".green
+            puts "      #{selection.first.pressure}".light_blue
             puts ''
             puts 'Would you like to see live radar of this storm?'
                 base_path = "https://www.wunderground.com"

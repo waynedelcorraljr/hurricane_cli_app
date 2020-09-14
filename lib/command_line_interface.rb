@@ -8,11 +8,11 @@ class CommandLineInterface
     end
 
     def greet_user
-        puts '*****************************************************************'.yellow
-        puts '*                                                               *'.yellow
-        puts '*           Hello, welcome to the Hurricane CLI App!            *'.yellow
-        puts '*                                                               *'.yellow
-        puts '*****************************************************************'.yellow
+        puts '*****************************************************************'.magenta
+        puts '*                                                               *'.magenta
+        puts '*           Hello, welcome to the Hurricane CLI App!            *'.magenta
+        puts '*                                                               *'.magenta
+        puts '*****************************************************************'.magenta
         puts ''
         puts '            Generating storm data, just a moment.....            '.green
     end
@@ -28,14 +28,14 @@ class CommandLineInterface
     def capture_path_loop
         input = " "
         puts ''
-        puts '*****************************************************************'.yellow
-        puts '*                                                               *'.yellow
-        puts '*            To view region activity, enter "regions"           *'.yellow
-        puts '*               For full report, enter "full report"            *'.yellow
-        puts '*       Type storm name to see details of only that storm       *'.yellow
-        puts '*              To exit the application, type "exit"             *'.yellow          
-        puts '*                                                               *'.yellow
-        puts '*****************************************************************'.yellow
+        puts '*****************************************************************'.magenta
+        puts '*                                                               *'.magenta
+        puts '*            To view region activity, enter "regions"           *'.magenta
+        puts '*               For full report, enter "full report"            *'.magenta
+        puts '*       Type storm name to see details of only that storm       *'.magenta
+        puts '*              To exit the application, type "exit"             *'.magenta          
+        puts '*                                                               *'.magenta
+        puts '*****************************************************************'.magenta
 
         Storm.display_all_storms
         
@@ -79,11 +79,11 @@ class CommandLineInterface
     end
 
     def say_goodbye
-        puts '*****************************************************************'.yellow
-        puts '*                                                               *'.yellow
-        puts '*           Thanks for using the Hurricane CLI App!             *'.yellow
-        puts '*                                                               *'.yellow
-        puts '*****************************************************************'.yellow
+        puts '*****************************************************************'.magenta
+        puts '*                                                               *'.magenta
+        puts '*           Thanks for using the Hurricane CLI App!             *'.magenta
+        puts '*                                                               *'.magenta
+        puts '*****************************************************************'.magenta
         exit
     end
 end

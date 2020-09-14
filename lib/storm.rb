@@ -48,7 +48,11 @@ class Storm
                 answer = ''
                 answer = gets.strip
                 if answer.upcase == "Y" || answer.upcase == "YES"
-                    system("open '#{base_path + selection.first.url.value}'")
+                    if selection.first.url == nil
+                        system("open '#{base_path + '/hurricane'}'")
+                    else
+                        system("open '#{base_path + selection.first.url.value}'")
+                    end
                 end
         end
     end

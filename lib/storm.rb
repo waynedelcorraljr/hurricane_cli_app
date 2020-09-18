@@ -19,7 +19,7 @@ class Storm
     def self.all
         @@all
     end
-    def self.display_all_storms
+    def self.display_all_storm_names
         sorted_storms = Storm.all.sort_by {|storm| storm.name}
         puts ''
         puts "                      ACTIVE STORMS:".blue

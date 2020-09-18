@@ -40,7 +40,7 @@ class CommandLineInterface
     def capture_path_loop
         input = " "
         menu
-        Storm.display_all_storms
+        Storm.display_all_storm_names
         
         puts "Your wish is my command..."
         puts ''

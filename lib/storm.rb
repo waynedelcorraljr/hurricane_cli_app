@@ -10,6 +10,7 @@ class Storm
         @wind_speed = storm_hash[:wind_speed]
         @pressure = storm_hash[:pressure]
         @url = storm_hash[:url] 
+        # @region = 
         @@all << self
     end
     def self.create_storms_from_collection(current_storms)
@@ -19,9 +20,10 @@ class Storm
         @@all
     end
     def self.display_all_storms
+        sorted_storms = Storm.all.sort_by {|storm| storm.name}
         puts ''
         puts "                      ACTIVE STORMS:".blue
-                Storm.all.each do |storm| 
+                sorted_storms.each do |storm| 
                     puts "                  #{storm.name}".green
                 end
         puts ''

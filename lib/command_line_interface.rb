@@ -25,8 +25,7 @@ class CommandLineInterface
         Region.create_regions_from_collection(regions)
     end
 
-    def capture_path_loop
-        input = " "
+    def menu
         puts ''
         puts '*****************************************************************'.magenta
         puts '*                                                               *'.magenta
@@ -36,37 +35,25 @@ class CommandLineInterface
         puts '*              To exit the application, type "exit"             *'.magenta          
         puts '*                                                               *'.magenta
         puts '*****************************************************************'.magenta
+    end
 
+    def capture_path_loop
+        input = " "
+        menu
         Storm.display_all_storms
         
         puts "Your wish is my command..."
         puts ''
         input = gets.strip
             if input.upcase == "REGIONS"
-                Region.all.each do |region| 
-                    puts ""
-                    puts "#{region.name}".blue
-                    puts "#{region.number_storms_active}".green
-                end
+                display_regions
                 sleep(2)
                 capture_path_loop
             elsif input.upcase == "FULL REPORT"
-                Region.all.each do |region| 
-                    puts ""
-                    puts "#{region.name}".blue
-                    puts "#{region.number_storms_active}".green
-                end
+                display_regions
                 puts ""
                 puts "Storms are listed in the above Region order (Atlantic -> Indian)".red
-                Storm.all.each do |storm| 
-                    puts ""
-                    puts "#{storm.name}".blue
-                    puts "Last Updated: #{storm.last_updated} GMT".green
-                    puts "Location: #{storm.location}".green
-                    puts "Movement: #{storm.movement}".green
-                    puts "Wind Speed: #{storm.wind_speed}".green
-                    puts "Pressure: #{storm.pressure}".green
-                end
+                display_storms
                 sleep(5)
                 capture_path_loop
             elsif input.upcase == "EXIT"
@@ -76,6 +63,26 @@ class CommandLineInterface
                 sleep(2)
                 capture_path_loop
             end
+    end
+
+    def display_regions
+        Region.all.each do |region| 
+            puts ""
+            puts "#{region.name}".blue
+            puts "#{region.number_storms_active}".green
+        end
+    end
+
+    def display_storms
+        Storm.all.each do |storm| 
+            puts ""
+            puts "#{storm.name}".blue
+            puts "Last Updated: #{storm.last_updated} GMT".green
+            puts "Location: #{storm.location}".green
+            puts "Movement: #{storm.movement}".green
+            puts "Wind Speed: #{storm.wind_speed}".green
+            puts "Pressure: #{storm.pressure}".green
+        end
     end
 
     def say_goodbye

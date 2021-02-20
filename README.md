@@ -19,6 +19,10 @@ Or install it yourself as:
 
     $ gem install hurricane_cli_app
 
+To run application, enter following command inside app directory:
+
+    $ ./bin/hurricane_cli_app
+
 ## Usage
 
 Finding active tropical storms and returning basic information.
